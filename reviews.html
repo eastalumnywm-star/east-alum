@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آراء العملاء</title>
+    <style>
+        :root { --main: #003366; --accent: #ffcc00; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fff; text-align: center; }
+        nav { background: var(--main); padding: 15px; border-bottom: 3px solid var(--accent); display: flex; justify-content: center; flex-wrap: wrap; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; margin: 5px 15px; text-decoration: none; font-weight: bold; }
+        .review-card { background: #f9f9f9; border-right: 5px solid var(--accent); padding: 20px; margin: 20px auto; max-width: 600px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
+        .review-img { width: 100%; border-radius: 8px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="windows.html">الشبابيك</a>
+        <a href="doors.html">الأبواب</a>
+        <a href="projects.html">المشاريع</a>
+        <a href="reviews.html" style="color:var(--accent)">الآراء</a>
+    </nav>
+    <h1 style="color: var(--main); margin-top: 30px;">ماذا يقول عملاؤنا عنا؟</h1>
+    <div id="reviews-container"></div>
+
+    <script>
+        const container = document.getElementById('reviews-container');
+        for(let i=1; i<=10; i++){
+            let div = document.createElement('div');
+            div.className = 'review-card';
+            div.innerHTML = `<h3>عميل مميز رقم ${i}</h3><img src="images/r${i}.JPG" class="review-img" onerror="this.parentElement.style.display='none'">`;
+            container.appendChild(div);
+        }
+    </script>
+</body>
+</html>

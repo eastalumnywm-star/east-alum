@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تصاميم الشبابيك</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; margin: 0; padding: 20px; text-align: center; }
+        h1 { color: #2c3e50; margin-bottom: 25px; border-bottom: 3px solid #e67e22; display: inline-block; padding-bottom: 5px; }
+        .back-btn { display: inline-block; padding: 10px 25px; background: #2c3e50; color: #fff; text-decoration: none; border-radius: 25px; margin-bottom: 25px; transition: 0.3s; font-weight: bold; }
+        .back-btn:hover { background: #e67e22; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; max-width: 1300px; margin: 0 auto; }
+        .item { background: #fff; border-radius: 15px; overflow: hidden; aspect-ratio: 1/1; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: 0.3s; display: none; }
+        .item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">⬅️ العودة للرئيسية</a><br>
+    <h1>تصاميم الشبابيك</h1>
+    <div class="gallery" id="G"></div>
+    <script>
+        const g = document.getElementById('G');
+        for (let i = 1; i <= 50; i++) {
+            const d = document.createElement('div'); d.className = 'item';
+            const img = document.createElement('img'); 
+            img.src = `windows/${i}.jpg`; // مسار صور الشبابيك
+            img.onload = function() { d.style.display = 'block'; }; 
+            d.appendChild(img); g.appendChild(d);
+        }
+    </script>
+</body>
+</html>
