@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عالم الألمنيوم والزجاج والحديد | شبابيك وأبواب ومطابخ بالشرقية</title>
-    <meta name="description" content="مؤسسة عالم الألمنيوم والزجاج بسيهات والدمام. خبرة منذ 2015 في تركيب شبابيك السرايا، أبواب الليزر، ومطابخ الألمنيوم الحديثة بجميع أحياء المنطقة الشرقية.">
-    <meta name="keywords" content="ألمنيوم سيهات, معلم ألمنيوم الدمام, شبابيك دبل جلاس, أبواب ليزر CNC, مطابخ ألمنيوم صاج, زجاج سيكوريت القطيف">
-    
+    <title>روائع التصميم | عالم الألمنيوم والزجاج والحديد</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #1a2a6c; 
-            --secondary-color: #b21f1f; 
-            --accent-color: #fdbb2d; 
+            --primary-color: #1a2a6c; /* أزرق ملكي للثقة */
+            --secondary-color: #b21f1f; /* لمسة قوة */
+            --accent-color: #fdbb2d; /* ذهبي للفخامة */
             --text-light: #ffffff;
         }
 
@@ -26,8 +23,9 @@
             overflow-x: hidden;
         }
 
+        /* الطبقة الشفافة الأنيقة */
         .glass-container {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
             margin: 20px auto;
             max-width: 1200px;
@@ -36,33 +34,40 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
 
+        /* الهيدر والعناوين */
         header { text-align: center; padding: 40px 0; display: flex; flex-direction: column; align-items: center; }
         
+        /* شعار المؤسسة المميز */
         .logo {
-            width: 150px; 
-            height: 150px; 
+            width: 150px; /* حجم الشعار */
+            height: 150px; /* حجم الشعار */
             background-color: var(--primary-color);
-            border-radius: 50%; 
+            border-radius: 50%; /* شكل دائري */
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 20px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             position: relative;
-            font-size: 80px;
         }
 
-        h1 { font-size: 2.8rem; color: var(--primary-color); margin-bottom: 10px; font-weight: 900; }
-        .subtitle { font-size: 1.3rem; color: #b21f1f; margin-bottom: 30px; font-weight: 700; }
+        .logo i {
+            font-size: 80px; /* حجم الأيقونة في الشعار */
+            color: var(--accent-color); /* لون الأيقونة في الشعار */
+        }
 
+        h1 { font-size: 3rem; color: var(--primary-color); margin-bottom: 10px; font-weight: 900; }
+        .subtitle { font-size: 1.2rem; color: #666; margin-bottom: 30px; }
+
+        /* قسم خدماتنا */
         .services-section {
             background: var(--primary-color);
             color: white;
-            padding: 35px;
+            padding: 30px;
             border-radius: 20px;
             margin-bottom: 50px;
-            line-height: 2;
-            text-align: justify;
+            line-height: 1.8;
+            text-align: right; /* محاذاة النص لليمين */
         }
 
         .services-section h2 {
@@ -70,7 +75,7 @@
             color: var(--accent-color);
             font-weight: 900;
             margin-bottom: 20px;
-            text-align: center;
+            text-align: center; /* توسيط العنوان */
         }
 
         .services-grid {
@@ -86,9 +91,13 @@
             border-radius: 25px;
             text-decoration: none;
             color: var(--primary-color);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
             border: 1px solid #eee;
-            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex; /* ترتيب المحتوى رأسيًا */
+            flex-direction: column;
+            align-items: center;
         }
 
         .service-card:hover {
@@ -98,16 +107,27 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
 
-        .service-card i { font-size: 55px; margin-bottom: 20px; display: block; }
-        .service-card h3 { font-size: 24px; margin-bottom: 15px; font-weight: 900; }
+        .service-card i { font-size: 50px; margin-bottom: 20px; display: block; color: var(--accent-color); /* لون الأيقونة */ }
+        .service-card h3 { font-size: 24px; margin-bottom: 15px; }
 
-        .featured-gallery { margin-bottom: 60px; text-align: center; }
-        .featured-gallery h2 { font-size: 2.2rem; color: var(--primary-color); font-weight: 900; margin-bottom: 25px; }
+        /* معرض مقتطفات من العمل */
+        .featured-gallery {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .featured-gallery h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            font-weight: 900;
+            margin-bottom: 25px;
+        }
 
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
+            margin-bottom: 20px;
         }
 
         .gallery-item {
@@ -120,17 +140,18 @@
             transition: 0.4s;
         }
 
-        .mini-label {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background: var(--primary-color);
-            color: white;
-            padding: 2px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
+        .gallery-item:hover {
+            transform: scale(1.05);
+            z-index: 5;
         }
 
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* زر الواتساب العائم */
         .whatsapp-btn {
             position: fixed;
             bottom: 30px;
@@ -155,12 +176,15 @@
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        footer { text-align: center; padding: 40px 0; color: #666; font-weight: bold; border-top: 1px solid #eee; }
+        footer { text-align: center; padding: 20px 0; color: #777; font-size: 0.9rem; }
 
+        /* تحسينات للجوال */
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
+            h1 { font-size: 2.2rem; }
             .glass-container { margin: 10px; padding: 20px 10px; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .logo { width: 100px; height: 100px; }
+            .logo i { font-size: 50px; }
         }
     </style>
 </head>
@@ -168,80 +192,107 @@
 
     <div class="glass-container">
         <header>
-            <div class="logo">🏗️</div>
-            <h1>مؤسسة عالم الألمنيوم والزجاج</h1>
-            <p class="subtitle">سجل تجاري رقم: 7014639426 | خبرة من 2015</p>
+            <div class="logo">
+                <i>🏗️</i>
+            </div>
+            <h1>عالم الألمنيوم والزجاج والحديد</h1>
+            <p class="subtitle">روائع التصميم.. دقة التنفيذ</p>
         </header>
 
         <section class="services-section">
-            <h2>الجودة والضمان في المنطقة الشرقية ✨</h2>
-            <p>
-                نحن في <b>مؤسسة عالم الألمنيوم والزجاج</b> نفخر بكوننا الوجهة الأولى لأعمال الألمنيوم والزجاج والحديد في <b>سيهات والدمام والقطيف</b>. بخبرة تمتد لأكثر من 10 سنوات، نقدم لعملائنا أفضل <b>حلول الشبابيك العازلة للصوت والحرارة</b> باستخدام قطاعات السرايا والجامبو الأصلية. نتميز بتنفيذ <b>مطابخ الألمنيوم المودرن</b> وأبواب الليزر الراقية التي تجمع بين القوة والجمال. نلتزم بأعلى معايير الدقة الهندسية لضمان راحة عملائنا، ونوفر خدمات رفع المقاسات والمعاينة المجانية في جميع أحياء الشرقية.
-            </p>
+            <h2>نحن نجسّد الجودة العالمية ✨</h2>
+            <p>نحن شركاؤك في بناء بيت الأحلام، متخصصون في تحويل الفراغات إلى لوحات فنية باستخدام أفضل خامات الألمنيوم والزجاج والحديد. نجمع بين <b>الخبرة الطويلة</b> و<b>أحدث الموديلات العالمية</b> لنقدم لك حلاً يتناسب مع ذوقك الرفيع. نلتزم بمواعيدنا، ونفخر بخدمة عملائنا بأفضل الخامات العالمية المقاومة للظروف الجوية، ونطبق دقة تنفيذ هندسية لا تقبل المساومة. خدماتنا مكفولة بضمان الجودة، وتصميمنا عصري يبعث الفخامة في كل زاوية. اختارك الجودة.. اختارك عالمنا.</p>
         </section>
 
         <div class="services-grid">
-            <a href="tel:0572017265" class="service-card">
+            <a href="windows.html" class="service-card">
                 <i>🪟</i>
-                <h3>شبابيك ألمنيوم</h3>
-                <p>تركيب شبابيك دبل جلاس عازلة للغبار والضجيج والحرارة.</p>
+                <h3>تصاميم الشبابيك</h3>
+                <p>عزل حراري وصوتي بأحدث الأنظمة العصرية.</p>
             </a>
-            <a href="tel:0572017265" class="service-card">
+            <a href="doors.html" class="service-card">
                 <i>🚪</i>
-                <h3>أبواب ليزر وألمنيوم</h3>
-                <p>أبواب مداخل رئيسية وأبواب داخلية بتصاميم CNC فاخرة.</p>
+                <h3>قسم الأبواب</h3>
+                <p>أبواب ألمنيوم فخمة تجمع بين المتانة والأناقة.</p>
             </a>
-            <a href="tel:0572017265" class="service-card">
+            <a href="kitchens.html" class="service-card">
                 <i>🍳</i>
-                <h3>تفصيل مطابخ</h3>
-                <p>مطابخ ألمنيوم صاج وفورميكا بألوان عصرية وإكسسوارات إيطالية.</p>
+                <h3>المطابخ الحديثة</h3>
+                <p>مطابخ عصرية بتصاميم ذكية تستغل كل مساحة.</p>
             </a>
-            <a href="tel:0572017265" class="service-card">
+            <a href="iron.html" class="service-card">
                 <i>⚒️</i>
-                <h3>حدادة وفن ليزر</h3>
-                <p>تشكيل الحديد المشغول والليزر للمظلات والسواتر والدرابزين.</p>
+                <h3>أعمال الحديد</h3>
+                <p>قوة الحديد بلمسات فنية كلاسيكية وحديثة.</p>
             </a>
-            <a href="tel:0572017265" class="service-card">
+            <a href="glass.html" class="service-card">
                 <i>💎</i>
-                <h3>زجاج سيكوريت</h3>
-                <p>واجهات محلات وفواصل زجاجية وشاورات بدقة عالية.</p>
+                <h3>أعمال الزجاج</h3>
+                <p>واجهات زجاجية وسيكوريت تعطي منزلك فخامة لا تُنسى.</p>
             </a>
         </div>
 
         <div class="featured-gallery">
-            <h2>✨ معرض أعمالنا في سيهات والدمام</h2>
+            <h2>✨ معرض النخبة (مقتطفات)</h2>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="w1.jpg" alt="شبابيك ألمنيوم سيهات" onerror="this.src='https://via.placeholder.com/200'"><div class="mini-label">شبابيك سرايا</div></div>
-                <div class="gallery-item"><img src="d1.jpg" alt="أبواب ليزر الدمام" onerror="this.src='https://via.placeholder.com/200'"><div class="mini-label">باب ليزر CNC</div></div>
-                <div class="gallery-item"><img src="k1.jpg" alt="مطابخ ألمنيوم الخبر" onerror="this.src='https://via.placeholder.com/200'"><div class="mini-label">مطبخ صاج</div></div>
-                <div class="gallery-item"><img src="g1.jpg" alt="واجهات زجاج القطيف" onerror="this.src='https://via.placeholder.com/200'"><div class="mini-label">زجاج سيكوريت</div></div>
+                <div class="gallery-item"><img src="windows/1.jpg" onerror="this.src='https://via.placeholder.com/200'"><div class="mini-label">موديل حديث</div></div>
+                <div class="gallery-item"><img src="windows/2.jpg" onerror="this.src='https://via.placeholder.com/200'"><div class="mini-label">إطلالة واسعة</div></div>
+                <div class="gallery-item"><img src="doors/b1.jpg" onerror="this.src='https://via.placeholder.com/200'"><div class="mini-label">باب رئيسي</div></div>
+                <div class="gallery-item"><img src="doors/b2.jpg" onerror="this.src='https://via.placeholder.com/200'"><div class="mini-label">مدخل فخم</div></div>
+                <div class="gallery-item"><img src="kitchens/k1.jpg" onerror="this.src='https://via.placeholder.com/200'"><div class="mini-label">مطبخ ذكي</div></div>
+                <div class="gallery-item"><img src="iron/h1.jpg" onerror="this.src='https://via.placeholder.com/200'"><div class="mini-label">حديد فني</div></div>
+                <div class="gallery-item"><img src="glass/g1.jpg" onerror="this.src='https://via.placeholder.com/200'"><div class="mini-label">واجهة زجاجية</div></div>
             </div>
         </div>
+<section style="background: #fdfdfd; padding: 60px 20px; border-top: 8px solid #1a2a6c; direction: rtl;">
+    <div style="max-width: 1100px; margin: 0 auto; font-family: 'Cairo', sans-serif;">
+        
+        <h2 style="text-align: center; color: #b21f1f; margin-bottom: 40px; font-weight: 900; font-size: 2.2rem;">دليل خدماتنا المرجعي في المنطقة الشرقية</h2>
 
-        <section style="background: #fdfdfd; padding: 40px 20px; border-top: 8px solid #1a2a6c; direction: rtl; border-radius: 20px;">
-            <div style="max-width: 1100px; margin: 0 auto;">
-                <h2 style="text-align: center; color: #b21f1f; margin-bottom: 30px; font-weight: 900;">نغطي جميع أحياء المنطقة الشرقية 📍</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
-                    <div style="background: #1a2a6c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.85rem;">سيهات - الغدير</div>
-                    <div style="background: #1a2a6c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.85rem;">سيهات - النمر</div>
-                    <div style="background: #1a2a6c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.85rem;">الدمام - الفاخرية</div>
-                    <div style="background: #1a2a6c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.85rem;">الدمام - الشعلة</div>
-                    <div style="background: #b21f1f; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.85rem;">القطيف - المجيدية</div>
-                    <div style="background: #b21f1f; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.85rem;">الخبر - الراكة</div>
-                    <div style="background: #fdbb2d; color: #1a2a6c; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.85rem; font-weight: bold;">عنك والجش</div>
-                    <div style="background: #fdbb2d; color: #1a2a6c; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.85rem; font-weight: bold;">رأس تنورة</div>
-                </div>
-            </div>
-        </section>
+        <div style="background: white; padding: 25px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px; border: 1px solid #eee;">
+            <h3 style="color: #1a2a6c; border-bottom: 2px solid #fdbb2d; padding-bottom: 10px;">🛠️ تخصصات الألمنيوم والزجاج والحديد</h3>
+            <p style="line-height: 2; color: #444;">نحن متخصصون في **تفصيل مطابخ ألمنيوم حديثة** (كلادينج، فورميكا، خشابي) مع رخام صناعي مقاوم للبكتيريا. نوفر أفضل **فني شبابيك ألمنيوم بالدمام** لتركيب قطاعات (سرايا، جامبو، دبل جلاس) العازلة للصوت والحرارة. كما نتميز في **تركيب زجاج سيكوريت 12 ملم** للواجهات، و**أبواب حديد ليزر CNC** ودهانات نارية أصلية مقاومة للصدأ في **رأس تنورة وسيهات والقطيف**.</p>
+        </div>
 
+        <h3 style="color: #1a2a6c; text-align: center; margin-bottom: 20px;">📍 تغطية شاملة لجميع الأحياء (رفع مقاسات فوري)</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px;">
+            
+            <div style="background: #1a2a6c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">الدمام - حي الشاطئ</div>
+            <div style="background: #1a2a6c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">الدمام - الفيصلية</div>
+            <div style="background: #1a2a6c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">الدمام - الفاخرية</div>
+            <div style="background: #1a2a6c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">الدمام - حي المنار</div>
+            <div style="background: #1a2a6c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">الدمام - حي طيبة</div>
+            <div style="background: #1a2a6c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">الدمام - حي الندى</div>
+            <div style="background: #1a2a6c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">إسكان الدمام</div>
+            <div style="background: #1a2a6c; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">حي المروج والنزهة</div>
+
+            <div style="background: #b21f1f; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">الخبر - العزيزية</div>
+            <div style="background: #b21f1f; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">الخبر - الراكة</div>
+            <div style="background: #b21f1f; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">الخبر - حي الجسر</div>
+            <div style="background: #b21f1f; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">الظهران - الدانة</div>
+            <div style="background: #b21f1f; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">الظهران - الدوحة</div>
+            <div style="background: #b21f1f; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">حي أجيال الظهران</div>
+            <div style="background: #b21f1f; color: white; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem;">الظهران - حي القصور</div>
+
+            <div style="background: #fdbb2d; color: #1a2a6c; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem; font-weight: bold;">سيهات - الغدير</div>
+            <div style="background: #fdbb2d; color: #1a2a6c; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem; font-weight: bold;">سيهات - الكوثر</div>
+            <div style="background: #fdbb2d; color: #1a2a6c; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem; font-weight: bold;">القطيف - المجيدية</div>
+            <div style="background: #fdbb2d; color: #1a2a6c; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem; font-weight: bold;">القطيف - تاروت</div>
+            <div style="background: #fdbb2d; color: #1a2a6c; padding: 10px; border-radius: 10px; text-align: center; font-size: 0.9rem; font-weight: bold;">رأس تنورة</div>
+        </div>
+
+        <p style="text-align: center; margin-top: 30px; font-weight: bold; color: #666; font-style: italic;">
+            * تواصل مع **أفضل ورشة ألمنيوم في الشرقية** للمعاينة المجانية في جميع هذه الأحياء.
+        </p>
+    </div>
+</section>
         <footer>
-            <p>مؤسسة عالم الألمنيوم والزجاج © 2026</p>
-            <p style="font-size: 0.8rem;">رقم السجل التجاري الموحد: 7014639426</p>
+            <p>جميع الحقوق محفوظة © 2026 | عالم الألمنيوم والزجاج والحديد</p>
         </footer>
     </div>
 
     <a href="https://wa.me/966572017265" class="whatsapp-btn" target="_blank">
-        <span>💬</span>
+        <span style="font-family: Arial;">💬</span>
     </a>
 
 </body>
