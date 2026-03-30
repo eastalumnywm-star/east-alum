@@ -1,5 +1,3 @@
-$path='c:\Users\DELL\Desktop\مجلد جديد\index.html';
-$content=@'
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -7,7 +5,7 @@ $content=@'
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
 
-    <title>روائع التصميم | عالم الألمنيوم والزجاج والحديد بالشرقية</title>
+    <title>| عالم الألمنيوم والزجاج والحديد بالشرقية</title>
     <meta name="description" content="ورشة عالم الألمنيوم والزجاج والحديد بالدمام وسيهات والخبر والقطيف. متخصصون في شبابيك ألمنيوم دبل جلاس، أبواب ليزر CNC، مطابخ ألمنيوم، زجاج سيكوريت 12 ملم وأعمال الحديد في المنطقة الشرقية.">
     <meta name="keywords" content="ورشة ألمنيوم الدمام, شبابيك ألمنيوم سيهات, زجاج سيكوريت الخبر, مطابخ ألمنيوم القطيف, أبواب ليزر CNC, حديد ليزر الشرقية">
     <meta name="robots" content="index,follow,max-image-preview:large">
@@ -171,11 +169,14 @@ $content=@'
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 12px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
         }
 
         .gallery-item {
             height: 220px;
-            border-radius: 14px;
+            border-radius: 8px;
             overflow: hidden;
             border: 3px solid white;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -268,7 +269,7 @@ $content=@'
         .whatsapp-btn {
             position: fixed;
             bottom: 24px;
-            left: 24px;
+            right: 24px;
             background: #25d366;
             color: white;
             width: 64px;
@@ -282,13 +283,84 @@ $content=@'
             text-decoration: none;
         }
 
+        .call-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 100px;
+            background: var(--primary-color);
+            color: white;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 32px;
+            line-height: 64px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .gallery-section {
+            display: none;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .gallery-section.active {
+            display: block;
+        }
+
+        .gallery-section h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            font-weight: 900;
+            margin-bottom: 30px;
+        }
+
+        .return-button {
+            background: linear-gradient(135deg, var(--accent-color), #d4a017);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            cursor: pointer;
+            margin: 30px auto;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(230, 126, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .return-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(230, 126, 0, 0.4);
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2.1rem; }
             .glass-container { margin: 10px; padding: 20px 12px; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 5px;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .gallery-item {
+                border-radius: 8px;
+                height: 180px;
+            }
+            .gallery-item img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+            .gallery-section { padding: 20px 10px; }
             .logo { width: 100px; height: 100px; }
             .logo i { font-size: 50px; }
-            .whatsapp-btn { width: 58px; height: 58px; line-height: 58px; font-size: 28px; left: 14px; bottom: 14px; }
+            .whatsapp-btn { width: 58px; height: 58px; line-height: 58px; font-size: 28px; right: 14px; bottom: 14px; }
+            .call-btn { width: 58px; height: 58px; line-height: 58px; font-size: 28px; right: 80px; bottom: 14px; }
         }
     </style>
 </head>
@@ -311,27 +383,27 @@ $content=@'
         </section>
 
         <div class="services-grid">
-            <a href="windows.html" class="service-card">
+            <a href="#windows" class="service-card" onclick="showSection('windows')">
                 <i>🪟</i>
                 <h3>تصاميم الشبابيك</h3>
                 <p>عزل حراري وصوتي بأحدث الأنظمة العصرية.</p>
             </a>
-            <a href="doors.html" class="service-card">
+            <a href="#doors" class="service-card" onclick="showSection('doors')">
                 <i>🚪</i>
                 <h3>قسم الأبواب</h3>
                 <p>أبواب ألمنيوم فخمة تجمع بين المتانة والأناقة.</p>
             </a>
-            <a href="kitchens.html" class="service-card">
+            <a href="#kitchens" class="service-card" onclick="showSection('kitchens')">
                 <i>🍳</i>
                 <h3>المطابخ الحديثة</h3>
                 <p>مطابخ عصرية بتصاميم ذكية تستغل كل مساحة.</p>
             </a>
-            <a href="iron.html" class="service-card">
+            <a href="#iron" class="service-card" onclick="showSection('iron')">
                 <i>⚒️</i>
                 <h3>أعمال الحديد</h3>
                 <p>قوة الحديد بلمسات فنية كلاسيكية وحديثة.</p>
             </a>
-            <a href="glass.html" class="service-card">
+            <a href="#glass" class="service-card" onclick="showSection('glass')">
                 <i>💎</i>
                 <h3>أعمال الزجاج</h3>
                 <p>واجهات زجاجية وسيكوريت تعطي منزلك فخامة لا تنسى.</p>
@@ -341,13 +413,16 @@ $content=@'
         <div class="featured-gallery">
             <h2>✨ معرض النخبة (مقتطفات)</h2>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="windows/1.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
-                <div class="gallery-item"><img src="windows/2.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
-                <div class="gallery-item"><img src="doors/b1.jpg" loading="lazy" decoding="async" alt="باب رئيسي" onerror="this.closest('.gallery-item').style.display='none'"></div>
-                <div class="gallery-item"><img src="doors/b2.jpg" loading="lazy" decoding="async" alt="مدخل فخم" onerror="this.closest('.gallery-item').style.display='none'"></div>
-                <div class="gallery-item"><img src="kitchens/k1.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
-                <div class="gallery-item"><img src="iron/h1.jpg" loading="lazy" decoding="async" alt="أعمال الحديد" onerror="this.closest('.gallery-item').style.display='none'"></div>
-                <div class="gallery-item"><img src="glass/g1.jpg" loading="lazy" decoding="async" alt="واجهة زجاجية" onerror="this.closest('.gallery-item').style.display='none'"></div>
+                <div class="gallery-item"><img src="windows/windows-aluminum-dammam-1.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+                <div class="gallery-item"><img src="doors/IMG-20240626-WA0072.jpg" loading="lazy" decoding="async" alt="باب رئيسي" onerror="this.closest('.gallery-item').style.display='none'"></div>
+                <div class="gallery-item"><img src="kitchens/aluminumksa-aluminum-kitchen-4.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+                <div class="gallery-item"><img src="iron/iron-gates-saihat-16.jpg" loading="lazy" decoding="async" alt="بوابات حديد سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+                <div class="gallery-item"><img src="glass/glass-facades-khobar-12.jpg" loading="lazy" decoding="async" alt="واجهات زجاج الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+                <div class="gallery-item"><img src="windows/windows-aluminum-dammam-2.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+                <div class="gallery-item"><img src="doors/aluminumksa-doors-aluminum-5.jpg" loading="lazy" decoding="async" alt="مدخل فخم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+                <div class="gallery-item"><img src="kitchens/aluminumksa-luxury-kitchen-5.jpg" loading="lazy" decoding="async" alt="مطبخ فاخر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+                <div class="gallery-item"><img src="iron/iron-laser-dammam-1.jpg" loading="lazy" decoding="async" alt="ليزر حديد الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+                <div class="gallery-item"><img src="glass/glass-securit-dammam-1.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
             </div>
         </div>
 
@@ -405,16 +480,387 @@ $content=@'
         </section>
 
         <footer>
-            <p>جميع الحقوق محفوظة © 2026 | عالم الألمنيوم والزجاج والحديد</p>
+            <p>جميع الحقوق محفوظة 2026 | عالم الألمنيوم والزجاج والحديد</p>
         </footer>
     </div>
+
+    <!-- Gallery Sections -->
+    <section id="windows" class="gallery-section">
+        <button class="return-button" onclick="showMainMenu()">العودة إلى الرئيسية</button>
+        <h2> تصاميم الشبابيك</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="windows/windows-aluminum-dammam-1.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-aluminum-dammam-2.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-aluminum-dammam-3.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-aluminum-dammam-4.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-aluminum-dammam-5.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-aluminum-dammam-6.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-aluminum-dammam-7.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-aluminum-dammam-8.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-aluminum-dammam-9.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-aluminum-dammam-10.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-aluminum-dammam-11.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-aluminum-dammam-12.jpg" loading="lazy" decoding="async" alt="شباك ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-installation-saihat-34.jpg" loading="lazy" decoding="async" alt="تركيب شبابيك سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-installation-saihat-35.jpg" loading="lazy" decoding="async" alt="تركيب شبابيك سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-installation-saihat-36.jpg" loading="lazy" decoding="async" alt="تركيب شبابيك سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-installation-saihat-37.jpg" loading="lazy" decoding="async" alt="تركيب شبابيك سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-installation-saihat-38.jpg" loading="lazy" decoding="async" alt="تركيب شبابيك سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-installation-saihat-39.jpg" loading="lazy" decoding="async" alt="تركيب شبابيك سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-installation-saihat-40.jpg" loading="lazy" decoding="async" alt="تركيب شبابيك سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-installation-saihat-41.jpg" loading="lazy" decoding="async" alt="تركيب شبابيك سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-installation-saihat-42.jpg" loading="lazy" decoding="async" alt="تركيب شبابيك سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-modern-dhahran-25.jpg" loading="lazy" decoding="async" alt="شبابيك عصرية الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-modern-dhahran-26.jpg" loading="lazy" decoding="async" alt="شبابيك عصرية الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-modern-dhahran-27.jpg" loading="lazy" decoding="async" alt="شبابيك عصرية الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-modern-dhahran-28.jpg" loading="lazy" decoding="async" alt="شبابيك عصرية الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-modern-dhahran-29.jpg" loading="lazy" decoding="async" alt="شبابيك عصرية الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-modern-dhahran-30.jpg" loading="lazy" decoding="async" alt="شبابيك عصرية الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-modern-dhahran-31.jpg" loading="lazy" decoding="async" alt="شبابيك عصرية الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-modern-dhahran-32.jpg" loading="lazy" decoding="async" alt="شبابيك عصرية الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-modern-dhahran-33.jpg" loading="lazy" decoding="async" alt="شبابيك عصرية الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-soundproof-khobar-13-1.jpg" loading="lazy" decoding="async" alt="شبابيك عازلة الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-soundproof-khobar-13-2.jpg" loading="lazy" decoding="async" alt="شبابيك عازلة الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-soundproof-khobar-14.jpg" loading="lazy" decoding="async" alt="شبابيك عازلة الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-soundproof-khobar-15.jpg" loading="lazy" decoding="async" alt="شبابيك عازلة الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-soundproof-khobar-16.jpg" loading="lazy" decoding="async" alt="شبابيك عازلة الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-soundproof-khobar-17.jpg" loading="lazy" decoding="async" alt="شبابيك عازلة الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-soundproof-khobar-18.jpg" loading="lazy" decoding="async" alt="شبابيك عازلة الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-soundproof-khobar-19.jpg" loading="lazy" decoding="async" alt="شبابيك عازلة الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-soundproof-khobar-20.jpg" loading="lazy" decoding="async" alt="شبابيك عازلة الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-soundproof-khobar-21.jpg" loading="lazy" decoding="async" alt="شبابيك عازلة الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-soundproof-khobar-22.jpg" loading="lazy" decoding="async" alt="شبابيك عازلة الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-soundproof-khobar-23.jpg" loading="lazy" decoding="async" alt="شبابيك عازلة الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="windows/windows-soundproof-khobar-24.jpg" loading="lazy" decoding="async" alt="شبابيك عازلة الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+        </div>
+        <!-- مناطق الخدمة في الشرقية -->
+        <section class="areas-section" aria-label="مناطق الخدمة في الشرقية">
+            <h2>مناطق الخدمة في المنطقة الشرقية</h2>
+            <p>
+                نخدم عملاءنا في الدمام والخبر والظهران وسيهات والقطيف ورأس تنورة، مع رفع مقاسات سريع وتنفيذ احترافي
+                لأعمال الشبابيك والأبواب والزجاج والمطابخ والحديد.
+            </p>
+            <div class="areas-grid">
+                <div class="area-chip">الدمام - حي الشاطئ</div>
+                <div class="area-chip">الدمام - الفيصلية</div>
+                <div class="area-chip">الدمام - حي المنار</div>
+                <div class="area-chip">الدمام - حي طيبة</div>
+                <div class="area-chip alt">الخبر - العزيزية</div>
+                <div class="area-chip alt">الخبر - الراكة</div>
+                <div class="area-chip alt">الظهران - الدانة</div>
+                <div class="area-chip alt">الظهران - حي القصور</div>
+                <div class="area-chip gold">سيهات - الغدير</div>
+                <div class="area-chip gold">سيهات - الكوثر</div>
+                <div class="area-chip gold">القطيف - المجيدية</div>
+                <div class="area-chip gold">رأس تنورة</div>
+            </div>
+        </section>
+    </section>
+
+    <section id="doors" class="gallery-section">
+        <button class="return-button" onclick="showMainMenu()">العودة إلى الرئيسية</button>
+        <h2>🚪 قسم الأبواب</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="doors/IMG-20240626-WA0072.jpg" loading="lazy" decoding="async" alt="باب رئيسي" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-aluminum-5.jpg" loading="lazy" decoding="async" alt="مدخل فخم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-dammam-1.jpg" loading="lazy" decoding="async" alt="أبواب الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-design-8.jpg" loading="lazy" decoding="async" alt="تصميم أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-entrance-7.jpg" loading="lazy" decoding="async" alt="أبواب مدخل" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-laser-cut-3.jpg" loading="lazy" decoding="async" alt="أبواب ليزر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-luxury-6.jpg" loading="lazy" decoding="async" alt="أبواب فاخرة" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-modern-4.jpg" loading="lazy" decoding="async" alt="أبواب عصرية" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-quality-9.jpg" loading="lazy" decoding="async" alt="أبواب جودة عالية" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-saihat-2.jpg" loading="lazy" decoding="async" alt="أبواب سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-work-10.jpg" loading="lazy" decoding="async" alt="أعمال أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-11.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-12.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-13.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-14.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-15.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-16.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-17.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-18.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-19.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-20.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-21.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-22.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-23.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-24.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-25.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-26.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-27.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-28.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-29.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-30.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-31.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-32.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-33.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-34.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-35.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-36.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-37.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-38.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-39.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-40.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-42.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-43.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-44.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="doors/aluminumksa-doors-45.jpg" loading="lazy" decoding="async" alt="أبواب" onerror="this.closest('.gallery-item').style.display='none'"></div>
+        </div>
+        <!-- مناطق الخدمة في الشرقية -->
+        <section class="areas-section" aria-label="مناطق الخدمة في الشرقية">
+            <h2>مناطق الخدمة في المنطقة الشرقية</h2>
+            <p>
+                نخدم عملاءنا في الدمام والخبر والظهران وسيهات والقطيف ورأس تنورة، مع رفع مقاسات سريع وتنفيذ احترافي
+                لأعمال الشبابيك والأبواب والزجاج والمطابخ والحديد.
+            </p>
+            <div class="areas-grid">
+                <div class="area-chip">الدمام - حي الشاطئ</div>
+                <div class="area-chip">الدمام - الفيصلية</div>
+                <div class="area-chip">الدمام - حي المنار</div>
+                <div class="area-chip">الدمام - حي طيبة</div>
+                <div class="area-chip alt">الخبر - العزيزية</div>
+                <div class="area-chip alt">الخبر - الراكة</div>
+                <div class="area-chip alt">الظهران - الدانة</div>
+                <div class="area-chip alt">الظهران - حي القصور</div>
+                <div class="area-chip gold">سيهات - الغدير</div>
+                <div class="area-chip gold">سيهات - الكوثر</div>
+                <div class="area-chip gold">القطيف - المجيدية</div>
+                <div class="area-chip gold">رأس تنورة</div>
+            </div>
+        </section>
+    </section>
+
+    <section id="kitchens" class="gallery-section">
+        <button class="return-button" onclick="showMainMenu()">العودة إلى الرئيسية</button>
+        <h2> المطابخ الحديثة</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="kitchens/aluminumksa-aluminum-kitchen-4.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-11.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-12.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-13.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-14.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-15.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-16.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-17.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-18.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-19.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-20.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-21.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-22.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-23.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-24.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-25.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-26.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-cabinet-6.jpg" loading="lazy" decoding="async" alt="خزانات مطبخ" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-dammam-1.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم بالدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-design-7.jpg" loading="lazy" decoding="async" alt="تصميم مطبخ" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-gray-9.jpg" loading="lazy" decoding="async" alt="مطبخ رمادي" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-quality-8.jpg" loading="lazy" decoding="async" alt="مطبخ جودة عالية" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-saihat-2.jpg" loading="lazy" decoding="async" alt="مطبخ ألمنيوم بسيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-kitchen-white-10.jpg" loading="lazy" decoding="async" alt="مطبخ أبيض" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-luxury-kitchen-5.jpg" loading="lazy" decoding="async" alt="مطبخ فاخر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="kitchens/aluminumksa-modern-kitchen-3.jpg" loading="lazy" decoding="async" alt="مطبخ عصري" onerror="this.closest('.gallery-item').style.display='none'"></div>
+        </div>
+        <!-- مناطق الخدمة في الشرقية -->
+        <section class="areas-section" aria-label="مناطق الخدمة في الشرقية">
+            <h2>مناطق الخدمة في المنطقة الشرقية</h2>
+            <p>
+                نخدم عملاءنا في الدمام والخبر والظهران وسيهات والقطيف ورأس تنورة، مع رفع مقاسات سريع وتنفيذ احترافي
+                لأعمال الشبابيك والأبواب والزجاج والمطابخ والحديد.
+            </p>
+            <div class="areas-grid">
+                <div class="area-chip">الدمام - حي الشاطئ</div>
+                <div class="area-chip">الدمام - الفيصلية</div>
+                <div class="area-chip">الدمام - حي المنار</div>
+                <div class="area-chip">الدمام - حي طيبة</div>
+                <div class="area-chip alt">الخبر - العزيزية</div>
+                <div class="area-chip alt">الخبر - الراكة</div>
+                <div class="area-chip alt">الظهران - الدانة</div>
+                <div class="area-chip alt">الظهران - حي القصور</div>
+                <div class="area-chip gold">سيهات - الغدير</div>
+                <div class="area-chip gold">سيهات - الكوثر</div>
+                <div class="area-chip gold">القطيف - المجيدية</div>
+                <div class="area-chip gold">رأس تنورة</div>
+            </div>
+        </section>
+    </section>
+
+    <section id="iron" class="gallery-section">
+        <button class="return-button" onclick="showMainMenu()">العودة إلى الرئيسية</button>
+        <h2> أعمال الحديد</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="iron/iron-gates-saihat-16.jpg" loading="lazy" decoding="async" alt="بوابات حديد سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-gates-saihat-17.jpg" loading="lazy" decoding="async" alt="بوابات حديد سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-gates-saihat-18.jpg" loading="lazy" decoding="async" alt="بوابات حديد سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-gates-saihat-19.jpg" loading="lazy" decoding="async" alt="بوابات حديد سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-gates-saihat-20.jpg" loading="lazy" decoding="async" alt="بوابات حديد سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-gates-saihat-21.jpg" loading="lazy" decoding="async" alt="بوابات حديد سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-gates-saihat-22.jpg" loading="lazy" decoding="async" alt="بوابات حديد سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-laser-dammam-1.jpg" loading="lazy" decoding="async" alt="ليزر حديد الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-laser-dammam-2.jpg" loading="lazy" decoding="async" alt="ليزر حديد الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-laser-dammam-3.jpg" loading="lazy" decoding="async" alt="ليزر حديد الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-laser-dammam-4.jpg" loading="lazy" decoding="async" alt="ليزر حديد الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-laser-dammam-5.jpg" loading="lazy" decoding="async" alt="ليزر حديد الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-modern-khobar6.jpg" loading="lazy" decoding="async" alt="حديد مودرن الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-modern-khobar7.jpg" loading="lazy" decoding="async" alt="حديد مودرن الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-modern-khobar8.jpg" loading="lazy" decoding="async" alt="حديد مودرن الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-modern-khobar9.jpg" loading="lazy" decoding="async" alt="حديد مودرن الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-modern-khobar10.jpg" loading="lazy" decoding="async" alt="حديد مودرن الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-work-dhahran-11.jpg" loading="lazy" decoding="async" alt="أعمال حديد الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-work-dhahran-12.jpg" loading="lazy" decoding="async" alt="أعمال حديد الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-work-dhahran-13.jpg" loading="lazy" decoding="async" alt="أعمال حديد الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-work-dhahran-14.jpg" loading="lazy" decoding="async" alt="أعمال حديد الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="iron/iron-work-dhahran-15.jpg" loading="lazy" decoding="async" alt="أعمال حديد الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+        </div>
+        <!-- مناطق الخدمة في الشرقية -->
+        <section class="areas-section" aria-label="مناطق الخدمة في الشرقية">
+            <h2>مناطق الخدمة في المنطقة الشرقية</h2>
+            <p>
+                نخدم عملاءنا في الدمام والخبر والظهران وسيهات والقطيف ورأس تنورة، مع رفع مقاسات سريع وتنفيذ احترافي
+                لأعمال الشبابيك والأبواب والزجاج والمطابخ والحديد.
+            </p>
+            <div class="areas-grid">
+                <div class="area-chip">الدمام - حي الشاطئ</div>
+                <div class="area-chip">الدمام - الفيصلية</div>
+                <div class="area-chip">الدمام - حي المنار</div>
+                <div class="area-chip">الدمام - حي طيبة</div>
+                <div class="area-chip alt">الخبر - العزيزية</div>
+                <div class="area-chip alt">الخبر - الراكة</div>
+                <div class="area-chip alt">الظهران - الدانة</div>
+                <div class="area-chip alt">الظهران - حي القصور</div>
+                <div class="area-chip gold">سيهات - الغدير</div>
+                <div class="area-chip gold">سيهات - الكوثر</div>
+                <div class="area-chip gold">القطيف - المجيدية</div>
+                <div class="area-chip gold">رأس تنورة</div>
+            </div>
+        </section>
+    </section>
+
+    <section id="glass" class="gallery-section">
+        <button class="return-button" onclick="showMainMenu()">العودة إلى الرئيسية</button>
+        <h2> أعمال الزجاج</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="glass/glass-facades-khobar-12.jpg" loading="lazy" decoding="async" alt="واجهات زجاج الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-facades-khobar-13.jpg" loading="lazy" decoding="async" alt="واجهات زجاج الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-facades-khobar-14.jpg" loading="lazy" decoding="async" alt="واجهات زجاج الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-facades-khobar-15.jpg" loading="lazy" decoding="async" alt="واجهات زجاج الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-facades-khobar-16.jpg" loading="lazy" decoding="async" alt="واجهات زجاج الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-facades-khobar-17.jpg" loading="lazy" decoding="async" alt="واجهات زجاج الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-facades-khobar-18.jpg" loading="lazy" decoding="async" alt="واجهات زجاج الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-facades-khobar-19.jpg" loading="lazy" decoding="async" alt="واجهات زجاج الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-facades-khobar-20.jpg" loading="lazy" decoding="async" alt="واجهات زجاج الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-facades-khobar-21.jpg" loading="lazy" decoding="async" alt="واجهات زجاج الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-facades-khobar-22.jpg" loading="lazy" decoding="async" alt="واجهات زجاج الخبر" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-mirrors-saihat-34.jpg" loading="lazy" decoding="async" alt="مرايا سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-mirrors-saihat-35.jpg" loading="lazy" decoding="async" alt="مرايا سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-mirrors-saihat-36.jpg" loading="lazy" decoding="async" alt="مرايا سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-mirrors-saihat-37.jpg" loading="lazy" decoding="async" alt="مرايا سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-mirrors-saihat-38.jpg" loading="lazy" decoding="async" alt="مرايا سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-mirrors-saihat-39.jpg" loading="lazy" decoding="async" alt="مرايا سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-mirrors-saihat-40.jpg" loading="lazy" decoding="async" alt="مرايا سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-mirrors-saihat-41.jpg" loading="lazy" decoding="async" alt="مرايا سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-mirrors-saihat-42.jpg" loading="lazy" decoding="async" alt="مرايا سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-mirrors-saihat-43.jpg" loading="lazy" decoding="async" alt="مرايا سيهات" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dammam-1.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dammam-2.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dammam-3.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dammam-4.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dammam-5.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dammam-6.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dammam-7.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dammam-8.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dammam-9.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dammam-10.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dammam-11.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الدمام" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dhahran-23.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dhahran-24.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dhahran-25.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dhahran-26.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dhahran-27.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dhahran-28.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dhahran-29.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dhahran-30.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dhahran-31.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dhahran-32.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+            <div class="gallery-item"><img src="glass/glass-securit-dhahran-33.jpg" loading="lazy" decoding="async" alt="زجاج سيكوريت الظهران" onerror="this.closest('.gallery-item').style.display='none'"></div>
+        </div>
+        <!-- مناطق الخدمة في الشرقية -->
+        <section class="areas-section" aria-label="مناطق الخدمة في الشرقية">
+            <h2>مناطق الخدمة في المنطقة الشرقية</h2>
+            <p>
+                نخدم عملاءنا في الدمام والخبر والظهران وسيهات والقطيف ورأس تنورة، مع رفع مقاسات سريع وتنفيذ احترافي
+                لأعمال الشبابيك والأبواب والزجاج والمطابخ والحديد.
+            </p>
+            <div class="areas-grid">
+                <div class="area-chip">الدمام - حي الشاطئ</div>
+                <div class="area-chip">الدمام - الفيصلية</div>
+                <div class="area-chip">الدمام - حي المنار</div>
+                <div class="area-chip">الدمام - حي طيبة</div>
+                <div class="area-chip alt">الخبر - العزيزية</div>
+                <div class="area-chip alt">الخبر - الراكة</div>
+                <div class="area-chip alt">الظهران - الدانة</div>
+                <div class="area-chip alt">الظهران - حي القصور</div>
+                <div class="area-chip gold">سيهات - الغدير</div>
+                <div class="area-chip gold">سيهات - الكوثر</div>
+                <div class="area-chip gold">القطيف - المجيدية</div>
+                <div class="area-chip gold">رأس تنورة</div>
+            </div>
+        </section>
+    </section>
 
     <a href="https://wa.me/966572017265" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">
         💬
     </a>
+    <a href="tel:966572017265" class="call-btn" target="_blank" rel="noopener" aria-label="اتصل بنا">
+        📞
+    </a>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.gallery-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Hide main content
+            const mainContent = document.querySelector('.services-section');
+            const servicesGrid = document.querySelector('.services-grid');
+            const featuredGallery = document.querySelector('.featured-gallery');
+            const reviewsSection = document.querySelector('.reviews-section');
+            const areasSection = document.querySelector('.areas-section');
+            
+            if (mainContent) mainContent.style.display = 'none';
+            if (servicesGrid) servicesGrid.style.display = 'none';
+            if (featuredGallery) featuredGallery.style.display = 'none';
+            if (reviewsSection) reviewsSection.style.display = 'none';
+            if (areasSection) areasSection.style.display = 'none';
+            
+            // Show selected section
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+        }
+        
+        function showMainMenu() {
+            // Hide all gallery sections
+            const sections = document.querySelectorAll('.gallery-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Show main content
+            const mainContent = document.querySelector('.services-section');
+            const servicesGrid = document.querySelector('.services-grid');
+            const featuredGallery = document.querySelector('.featured-gallery');
+            const reviewsSection = document.querySelector('.reviews-section');
+            const areasSection = document.querySelector('.areas-section');
+            
+            if (mainContent) mainContent.style.display = 'block';
+            if (servicesGrid) servicesGrid.style.display = 'grid';
+            if (featuredGallery) featuredGallery.style.display = 'block';
+            if (reviewsSection) reviewsSection.style.display = 'block';
+            if (areasSection) areasSection.style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
-'@;
-[System.IO.File]::WriteAllText($path,$content,[System.Text.UTF8Encoding]::new($false));
-Write-Output 'index updated professionally with areas seo';
